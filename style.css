@@ -37,9 +37,40 @@ nav{
 
     padding:18px 60px;
 
-    background:#5B80F1;
+   background: linear-gradient(
+    90deg,
+    #5B80F1 0%,
+    #6489F3 40%,
+    #7096F6 70%,
+    #7EA2FA 100%
+);
+
+    box-shadow:0 3px 15px rgba(0,0,0,.05);
 
     z-index:999;
+
+}
+
+nav::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    right:0;
+
+    width:320px;
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        rgba(255,255,255,0),
+        rgba(255,255,255,.55),
+        rgba(255,255,255,.9)
+    );
+
+    pointer-events:none;
 
 }
 
