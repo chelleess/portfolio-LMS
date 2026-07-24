@@ -88,3 +88,46 @@ card.addEventListener("mouseleave", ()=>{
     "perspective(1200px) rotateX(0) rotateY(0)";
 
 });
+
+const timeline = document.querySelector(".timeline");
+
+if(timeline){
+    timeline.classList.add("draw");
+}
+
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},{
+    threshold:0.2
+});
+
+document.querySelectorAll(
+".travel-journal,.stop,.timeline"
+).forEach(el=>observer.observe(el));
+
+document.addEventListener("mousemove",(e)=>{
+
+const x=(e.clientX/window.innerWidth)-0.5;
+
+const y=(e.clientY/window.innerHeight)-0.5;
+
+document.querySelector(".cloud1").style.transform=
+`translate(${x*20}px,${y*15}px)`;
+
+document.querySelector(".cloud2").style.transform=
+`translate(${x*-25}px,${y*-12}px)`;
+
+document.querySelector(".cloud3").style.transform=
+`translate(${x*15}px,${y*18}px)`;
+
+});
