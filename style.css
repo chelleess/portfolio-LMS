@@ -711,3 +711,627 @@ SOCIAL SECTION
     transform:rotate(-18deg) scale(1);
 
 }
+
+
+/* ABOUT ME SECTION == AIRPLANE MEAL PLAN + TIMELINE */
+/* ================= ABOUT ================= */
+
+.about{
+
+    padding:120px 10%;
+    background:#f8f4ef;
+
+}
+
+.about-title{
+
+    text-align:center;
+    margin-bottom:70px;
+
+}
+
+.about-title p{
+
+    font-size:14px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#8a7d72;
+
+}
+
+.about-title h2{
+
+    margin-top:10px;
+    font-size:54px;
+    font-family:"Cormorant Garamond", serif;
+    color:#3d3028;
+
+}
+
+.about-grid{
+
+    display:grid;
+    grid-template-columns:0.9fr 1.4fr;
+    gap:60px;
+    align-items:start;
+
+}
+
+.carry-on{
+
+    background:white;
+    border-radius:28px;
+    padding:30px;
+
+    box-shadow:0 15px 45px rgba(0,0,0,.08);
+
+    position:sticky;
+    top:120px;
+
+}
+
+.tray{
+
+    margin-top:25px;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:16px;
+
+}
+
+.item{
+
+    background:#fcfaf8;
+
+    border:1px solid #ebe4dc;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    transition:.35s;
+
+    cursor:default;
+
+}
+
+.item:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+
+}
+
+.item span{
+
+    font-size:28px;
+
+}
+
+.item h4{
+
+    margin:12px 0 6px;
+
+    font-size:18px;
+
+}
+
+.item p{
+
+    color:#666;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+}
+
+.flight-log{
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:40px;
+
+    box-shadow:0 15px 45px rgba(0,0,0,.08);
+
+}
+
+.tabs{
+
+    display:flex;
+
+    gap:12px;
+
+    margin:30px 0;
+
+}
+
+.tabs button{
+
+    border:none;
+
+    padding:10px 22px;
+
+    border-radius:999px;
+
+    background:#eee5dc;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-family:inherit;
+
+}
+
+.tabs button.active{
+
+    background:#b58b66;
+
+    color:white;
+
+}
+
+.timeline{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:35px;
+
+}
+
+.entry{
+
+    display:grid;
+
+    grid-template-columns:110px auto;
+
+    gap:28px;
+
+    position:relative;
+
+}
+
+.entry{
+
+    display:grid;
+
+    grid-template-columns:110px auto;
+
+    gap:28px;
+
+    position:relative;
+
+}
+
+.year{
+
+    font-size:14px;
+
+    color:#9a8d82;
+
+    line-height:1.7;
+
+    font-weight:600;
+
+}
+
+.content{
+
+    position:relative;
+
+    padding-left:28px;
+
+}
+
+.content::before{
+
+    content:"✈";
+
+    position:absolute;
+
+    left:-6px;
+
+    top:3px;
+
+    color:#b58b66;
+
+}
+
+.content::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:2px;
+
+    top:28px;
+
+    width:2px;
+
+    height:calc(100% + 30px);
+
+    background:#e6ddd4;
+
+}
+
+.entry:last-child .content::after{
+
+    display:none;
+
+}
+
+.content h4{
+
+    margin-bottom:5px;
+
+    font-size:22px;
+
+    color:#3d3028;
+
+}
+
+.content h5{
+
+    font-weight:500;
+
+    color:#8b7e73;
+
+    margin-bottom:10px;
+
+}
+
+.content p{
+
+    line-height:1.8;
+
+    color:#666;
+
+}
+
+@media(max-width:900px){
+
+.about-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.carry-on{
+
+position:relative;
+top:0;
+
+}
+
+.entry{
+
+grid-template-columns:80px auto;
+
+}
+
+}
+
+.flight-log h3{
+
+position:relative;
+
+font-size:32px;
+
+font-family:"Cormorant Garamond", serif;
+
+}
+
+.flight-log h3::after{
+
+content:"🛂";
+
+position:absolute;
+
+right:0;
+
+top:-15px;
+
+font-size:70px;
+
+opacity:.08;
+
+transform:rotate(-15deg);
+
+}
+
+/* ================= CARRY ON ================= */
+
+.carry-on{
+
+    width:100%;
+
+    position:relative;
+
+    cursor:pointer;
+
+    user-select:none;
+
+}
+
+.bag-closed{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:30px;
+
+    border-radius:28px;
+
+    background:#fdf9f5;
+
+    border:1px solid #eadfd5;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.08);
+
+    transition:.45s ease;
+
+}
+
+.bag-closed img{
+
+    width:100%;
+
+    max-width:320px;
+
+    transition:.4s;
+
+}
+
+.bag-closed:hover img{
+
+    transform:translateY(-8px);
+
+}
+
+.bag-closed h3{
+
+    margin-top:20px;
+
+    font-size:32px;
+
+    font-family:"Cormorant Garamond", serif;
+
+}
+
+.bag-closed p{
+
+    margin-top:10px;
+
+    color:#7b6d63;
+
+}
+
+.bag-closed::after{
+
+    content:"Tap to unpack ✦";
+
+    position:absolute;
+
+    bottom:25px;
+
+    right:25px;
+
+    background:#fff;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    font-size:12px;
+
+    letter-spacing:1px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.bag-open{
+
+    display:none;
+
+}
+
+.carry-on.open .bag-open{
+
+    display:block;
+
+    animation:fadeIn .5s;
+
+}
+
+.carry-on.open .bag-closed{
+
+    display:none;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(15px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+.bag-content{
+
+    background:#f8f2ea;
+
+    border-radius:28px;
+
+    padding:25px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+
+    box-shadow:
+        inset 0 0 0 8px #e7ddd2,
+        0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.memory{
+
+    position:relative;
+
+    overflow:visible;
+
+}
+
+.memory img{
+
+    width:100%;
+
+    aspect-ratio:1;
+
+    object-fit:cover;
+
+    border-radius:16px;
+
+    transition:.35s;
+
+}
+
+.memory:hover img{
+
+    transform:scale(1.06);
+
+}
+
+.bubble{
+
+    position:absolute;
+
+    left:110%;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:260px;
+
+    padding:18px;
+
+    background:white;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.15);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.35s;
+
+    z-index:20;
+
+}
+
+.memory:hover .bubble{
+
+    opacity:1;
+
+}
+
+.bubble img{
+
+    width:100%;
+
+    border-radius:12px;
+
+    margin-bottom:12px;
+
+}
+
+.bubble::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-10px;
+
+    top:45%;
+
+    width:20px;
+
+    height:20px;
+
+    background:white;
+
+    transform:rotate(45deg);
+
+}
+
+.memory img{
+
+    padding:8px;
+
+    background:white;
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.1);
+
+}
+
+.bag-closed img{
+
+    animation:floatSuitcase 3.5s ease-in-out infinite;
+
+}
+
+@keyframes floatSuitcase{
+
+    0%,100%{
+
+        transform:translateY(0) rotate(-1deg);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px) rotate(1deg);
+
+    }
+
+}
