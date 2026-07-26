@@ -1189,50 +1189,93 @@ transform:none;
 }
 
 .bag-content{
+    background-image:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.35) 2px, transparent 2px);
 
-    background:#f8f2ea;
+    background-size:18px 18px;
+
+    position:relative;
+
+    width:100%;
+    height:520px;
+
+    background:#f8f3ed;
 
     border-radius:28px;
 
-    padding:25px;
+    border:2.5px solid #d6b98d;
 
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:18px;
+    overflow:visible;
 
     box-shadow:
-        inset 0 0 0 8px #e7ddd2,
-        0 15px 35px rgba(0,0,0,.08);
+    inset 0 0 0 2px rgba(255,255,255,.4),
+    0 12px 30px rgba(0,0,0,.08);
+}
+
+.camera{
+
+    position:absolute;
+
+    top:40px;
+
+    left:35px;
+
+    transform:rotate(-6deg);
 
 }
 
 .memory{
 
-    position:relative;
-
-    overflow:visible;
+    position:absolute;
+    width:90px;
+    cursor:pointer;
+    transition:.3s ease;
 
 }
 
 .memory img{
 
     width:100%;
+    display:block;
 
-    aspect-ratio:1;
+    border-radius:14px;
 
-    object-fit:cover;
+    background:white;
+    padding:8px;
 
-    border-radius:16px;
+    box-shadow:0 8px 18px rgba(0,0,0,.12);
 
-    transition:.35s;
+    transition:.3s ease;
 
 }
 
-.memory:hover img{
+.memory::before{
 
-    transform:scale(1.06);
+    content:"";
+
+    position:absolute;
+
+    top:-8px;
+
+    left:50%;
+
+    transform:translateX(-50%) rotate(-6deg);
+
+    width:34px;
+
+    height:10px;
+
+    background:rgba(255,245,200,.7);
+
+    border-radius:2px;
+
+}
+
+.memory:hover{
+
+    transform:scale(1.08) rotate(0deg);
+
+    z-index:100;
 
 }
 
@@ -1240,36 +1283,57 @@ transform:none;
 
     position:absolute;
 
-    left:110%;
+    bottom:105%;
 
-    top:50%;
+    left:50%;
 
-    transform:translateY(-50%);
+    transform:
+    
+    translateX(-50%);
 
-    width:260px;
-
-    padding:18px;
+    translateY(-20px);
+    
+    width:220px;
 
     background:white;
 
+    padding:16px;
+
     border-radius:18px;
 
-    box-shadow:
-        0 15px 30px rgba(0,0,0,.15);
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
 
     opacity:0;
 
-    pointer-events:none;
+    visibility:hidden;
 
-    transition:.35s;
+    transition:.3s;
 
-    z-index:20;
+}
+
+.bubble h4{
+
+    font-size:18px;
+
+}
+
+.bubble p{
+
+    font-size:13px;
+
+    line-height:1.6;
 
 }
 
 .memory:hover .bubble{
 
     opacity:1;
+
+     transform:
+
+        translateX(-50%)
+
+        translateY(0);
 
 }
 
@@ -1303,20 +1367,98 @@ transform:none;
 
 }
 
+.bubble::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-8px;
+
+    left:50%;
+
+    transform:translateX(-50%) rotate(45deg);
+
+    width:16px;
+    height:16px;
+
+    background:white;
+
+}
+
 .memory img{
 
-    padding:8px;
+    padding:6px;
+
+    border-radius:12px;
 
     background:white;
 
     box-shadow:
-        0 8px 18px rgba(0,0,0,.1);
+        0 6px 14px rgba(0,0,0,.08);
 
 }
 
-.bag-closed img{
+.books{
 
-    animation:floatSuitcase 3.5s ease-in-out infinite;
+    position:absolute;
+
+    top:60px;
+
+    right:40px;
+
+    transform:rotate(5deg);
+
+}
+
+.mic{
+
+    position:absolute;
+
+    top:180px;
+
+    left:170px;
+
+}
+
+.journal{
+
+    position:absolute;
+
+    bottom:80px;
+
+    left:50px;
+
+    transform:rotate(8deg);
+
+}
+
+.baking{
+
+    position:absolute;
+
+    bottom:90px;
+    right:70px;
+
+    transform:rotate(-8deg);
+
+}
+
+.curiosity{
+
+    position:absolute;
+
+    bottom:35px;
+    left:50%;
+
+    transform:translateX(-50%) rotate(5deg);
+
+}
+
+
+.bag-closed:hover{
+
+    transform:translateY(-6px);
 
 }
 

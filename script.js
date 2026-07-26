@@ -162,10 +162,10 @@ window.addEventListener("scroll", () => {
 
 });
 
-const bag = document.querySelector(".carry-on");
+const carryOn = document.querySelector(".carry-on");
 
-bag.addEventListener("click",()=>{
+carryOn.addEventListener("click",()=>{
 
-    bag.classList.toggle("open");
+    carryOn.classList.toggle("open");
 
 });
