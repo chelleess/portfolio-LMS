@@ -1218,9 +1218,9 @@ transform:none;
 
     top:40px;
 
-    left:35px;
+    left:50px;
 
-    transform:rotate(-6deg);
+    transform:rotate(-8deg);
 
 }
 
@@ -1273,13 +1273,17 @@ transform:none;
 
 .memory:hover{
 
-    transform:scale(1.08) rotate(0deg);
-
-    z-index:100;
+    z-index:1000;;
 
 }
 
+.memory:hover img{
+    transform: scale(1.08);
+}
+
 .bubble{
+
+    z-index:999;
 
     position:absolute;
 
@@ -1328,6 +1332,8 @@ transform:none;
 .memory:hover .bubble{
 
     opacity:1;
+
+    visibility:visible;
 
      transform:
 
@@ -1403,55 +1409,51 @@ transform:none;
 
     position:absolute;
 
-    top:60px;
+    top:45px;
 
-    right:40px;
+    right:60px;
 
-    transform:rotate(5deg);
+    transform:rotate(7deg);
 
 }
 
 .mic{
 
-    position:absolute;
+    top: 180px;
 
-    top:180px;
+    left: 50%;
 
-    left:170px;
+    transform: translateX(-50%) rotate(-2deg);
 
 }
 
 .journal{
 
-    position:absolute;
+    bottom: 120px;
 
-    bottom:80px;
+    right: 40px;
 
-    left:50px;
-
-    transform:rotate(8deg);
+    transform: rotate(-6deg);
 
 }
 
 .baking{
 
-    position:absolute;
+    bottom: 115px;
 
-    bottom:90px;
-    right:70px;
+    left: 45px;
 
-    transform:rotate(-8deg);
+    transform: rotate(5deg);
 
 }
 
 .curiosity{
 
-    position:absolute;
-
-    bottom:35px;
-    left:50%;
-
-    transform:translateX(-50%) rotate(5deg);
+    bottom: 20px;
+    
+    left: 50%;
+    
+    transform: translateX(-50%) rotate(3deg);
 
 }
 
