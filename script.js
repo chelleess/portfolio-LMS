@@ -188,3 +188,85 @@ function showTab(tabId, event) {
     // Highlight selected button
     event.target.classList.add("active");
 }
+
+/* ================= PROJECTS — coverflow gallery ================= */
+(function () {
+ 
+    const track = document.getElementById("projTrack");
+    if (!track) return;                       // section not on this page
+ 
+    const cards   = Array.from(track.querySelectorAll(".proj-card"));
+    const caption = document.getElementById("projCaption");
+    const dotsBox = document.getElementById("projDots");
+    const stage   = document.getElementById("projStage");
+ 
+    let active = Math.min(2, cards.length - 1);   // start roughly centred
+ 
+    // build position dots
+    cards.forEach((_, i) => {
+        const d = document.createElement("button");
+        d.setAttribute("aria-label", "Go to project " + (i + 1));
+        d.addEventListener("click", () => go(i));
+        dotsBox.appendChild(d);
+    });
+    const dots = Array.from(dotsBox.children);
+ 
+    function render() {
+        cards.forEach((card, i) => {
+            const offset = i - active;
+            const abs  = Math.abs(offset);
+            const sign = Math.sign(offset);
+ 
+            // fanned coverflow steps
+            const x   = sign * (abs === 0 ? 0 : abs === 1 ? 200 : abs === 2 ? 350 : 470);
+            const z   = abs === 0 ? 0 : abs === 1 ? -90 : abs === 2 ? -240 : -400;
+            const rot = -sign * (abs === 0 ? 0 : abs === 1 ? 32 : abs === 2 ? 42 : 48);
+            const sc  = abs === 0 ? 1 : abs === 1 ? 0.85 : abs === 2 ? 0.72 : 0.62;
+            const op  = abs > 3 ? 0 : abs === 3 ? 0.4 : 1;
+ 
+            card.style.transform =
+                `translateX(${x}px) translateZ(${z}px) rotateY(${rot}deg) scale(${sc})`;
+            card.style.opacity      = op;
+            card.style.zIndex       = 30 - abs;
+            card.style.pointerEvents = abs > 3 ? "none" : "auto";
+            card.classList.toggle("is-active", offset === 0);
+        });
+ 
+        const c = cards[active];
+        caption.querySelector("h3").textContent = c.dataset.title;
+        caption.querySelector("p").textContent = c.dataset.desc;
+        caption.querySelector(".proj-tags").innerHTML =
+            c.dataset.tags.split("·").map(t => `<span>${t.trim()}</span>`).join("");
+        caption.querySelector(".proj-link").href = c.dataset.link;
+ 
+        dots.forEach((d, i) => d.classList.toggle("is-active", i === active));
+    }
+ 
+    function go(i) {
+        active = Math.max(0, Math.min(cards.length - 1, i));
+        render();
+    }
+ 
+    // tap a card to focus it (handy on touch)
+    cards.forEach((card, i) => card.addEventListener("click", () => go(i)));
+ 
+    // MOUSE DIRECTION: the card nearest your cursor becomes active.
+    // Move left for earlier projects, right for later ones — no clicking.
+    stage.addEventListener("pointermove", (e) => {
+        const rect = stage.getBoundingClientRect();
+        const ratio = (e.clientX - rect.left) / rect.width;   // 0 left → 1 right
+        const idx = Math.round(Math.max(0, Math.min(1, ratio)) * (cards.length - 1));
+        if (idx !== active) go(idx);
+    });
+ 
+    // keyboard fallback: Tab to the gallery, then arrow keys
+    stage.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft")  { e.preventDefault(); go(active - 1); }
+        if (e.key === "ArrowRight") { e.preventDefault(); go(active + 1); }
+    });
+ 
+    render();
+})();
+
+caption.querySelector("p").innerHTML =
+    c.querySelector(".project-description").innerHTML;

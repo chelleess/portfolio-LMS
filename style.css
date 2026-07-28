@@ -886,7 +886,7 @@ SOCIAL SECTION
     width:0;
     height:2px;
 
-    background:#B2B1B3;
+    background:#b5c9e6;
 
     transition:.3s ease;
 
@@ -1578,4 +1578,231 @@ transform:none;
 
 .tab-content.active{
     display:block;
+}
+
+/* ==========================
+   PROJECTS  —  coverflow gallery
+========================== */
+
+#projects{
+    background:#f6f6f4;
+    padding:110px 24px 130px;
+    text-align:center;
+    overflow:hidden;
+}
+
+.proj-heading{
+    font-family:"Cormorant Garamond",serif;
+    font-weight:700;
+    font-size:clamp(3rem,7vw,5.5rem);
+    color:#32426f;
+    margin:0 0 8px;
+    min-height:auto;
+    letter-spacing:.5px;
+}
+
+.proj-heading .spark{
+    color:#b58b66;
+    font-size:.55em;
+    vertical-align:.55em;
+}
+
+.proj-rule{
+    width:260px;
+    height:2px;
+    background:#32426f;
+    opacity:.8;
+    margin:0 auto 8px;
+}
+
+.proj-sub{
+    font-size:.8rem;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:#8a7d72;
+    margin:0 0 54px;
+}
+
+/* --- 3D stage --- */
+.proj-stage{
+    position:relative;
+    height:400px;
+    max-width:1100px;
+    margin:0 auto;
+    perspective:1600px;
+    cursor:ew-resize;      /* reads as "sweep me sideways" */
+    touch-action:pan-y;    /* keep vertical page scroll on touch */
+}
+
+.proj-stage:focus-visible{
+    outline:3px solid #b58b66;
+    outline-offset:6px;
+    border-radius:18px;
+}
+
+.proj-track{
+    position:absolute;
+    inset:0;
+    transform-style:preserve-3d;
+}
+
+.proj-card{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:250px;
+    height:340px;
+    margin:-170px 0 0 -125px;   /* centre on the stage */
+    padding:10px;
+    border-radius:16px;
+    background:#fdf9f5;
+    border:1px solid #eadfd5;
+    box-shadow:0 18px 40px rgba(61,48,40,.18);
+    cursor:pointer;
+    transition:transform .6s cubic-bezier(.22,.61,.36,1),opacity .6s ease,box-shadow .6s ease;
+    will-change:transform;
+}
+
+.proj-card::after{          /* inner passport-stamp frame */
+    content:"";
+    position:absolute;
+    inset:16px;
+    border:1px solid rgba(61,48,40,.14);
+    border-radius:9px;
+    pointer-events:none;
+}
+
+.proj-card.is-active{
+    box-shadow:0 30px 60px rgba(61,48,40,.3);
+}
+
+.proj-media{
+    width:100%;
+    height:100%;
+    border-radius:9px;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:3.2rem;   /* placeholder emoji size */
+}
+
+/* --- caption (updates with the active card) --- */
+.proj-caption{
+    margin:48px auto 0;
+    max-width:520px;
+    min-height:120px;
+
+    text-align:left;   /* Add this */
+
+}
+
+.proj-caption h3{
+    font-family:"Cormorant Garamond",serif;
+    font-weight:500;
+    font-size:2rem;
+    color:#3d3028;
+    margin:0 0 6px;
+}
+
+.proj-caption p{
+    color:#7d7d7d;
+    font-size:.98rem;
+    line-height:1.6;
+    margin:0 0 16px;
+}
+
+.proj-tags{
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-bottom:18px;
+}
+
+.proj-tags span{
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#8a7d72;
+    border:1px solid #eadfd5;
+    border-radius:999px;
+    padding:5px 12px;
+}
+
+.proj-link{
+    font-size:.82rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:#b58b66;
+    text-decoration:none;
+    font-weight:600;
+    border-bottom:1px solid transparent;
+    transition:border-color .25s ease;
+}
+
+.proj-link:hover{
+    border-color:#b58b66;
+}
+
+/* --- dots + hint --- */
+.proj-dots{
+    display:flex;
+    gap:9px;
+    justify-content:center;
+    margin-top:8px;
+}
+
+.proj-dots button{
+    width:8px;
+    height:8px;
+    padding:0;
+    border:none;
+    border-radius:50%;
+    background:#e0d6ca;
+    cursor:pointer;
+    transition:background .25s ease,transform .25s ease;
+}
+
+.proj-dots button.is-active{
+    background:#b58b66;
+    transform:scale(1.35);
+}
+
+.proj-hint{
+    font-size:.72rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:#8a7d72;
+    opacity:.75;
+    margin:16px 0 0;
+}
+
+.proj-media{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    border-radius:18px;
+}
+
+.proj-media img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .35s ease;
+}
+
+.proj-card:hover .proj-media img{
+    transform:scale(1.05);
+}
+
+@media(max-width:640px){
+    .proj-stage{height:340px;}
+    .proj-card{width:200px;height:280px;margin:-140px 0 0 -100px;}
+}
+
+@media(prefers-reduced-motion:reduce){
+    .proj-card{transition:none;}
 }
