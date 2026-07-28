@@ -2,11 +2,11 @@
 
 Welcome aboard to Lavenia's Journey! 
 
-This portfolio is designed around the concept of an airport — a place of departure, arrival, and countless stories.
+This portfolio is designed around the concept of an airport. A place of departure, arrival, and countless stories.
 
 As an international student, airports have always been more than just a place to catch a flight. They have been silent witnesses to my journey: from leaving home to pursuing new opportunities, arriving in unfamiliar places, and building new chapters of my life.
 
-Through this portfolio, I wanted to create an experience where visitors can follow my journey just like traveling through an airport — exploring my background, experiences, skills, and projects along the way.
+Through this portfolio, I wanted to create an experience where visitors can follow my journey just like traveling through an airport, exploring my background, experiences, skills, and projects along the way.
 
 ---
 
@@ -27,10 +27,10 @@ This portfolio is a reflection of my experience as an international student navi
 
 This portfolio was built from scratch using:
 
-- **HTML** — structuring the website and organizing content
-- **CSS** — creating the airport-inspired layout, animations, and visual design
-- **JavaScript** — implementing interactive elements and website mechanisms
-- **C/C++** — strengthening my programming foundation and problem-solving skills
+- **HTML** : structuring the website and organizing content
+- **CSS** : creating the airport-inspired layout, animations, and visual design
+- **JavaScript** : implementing interactive elements and website mechanisms
+- **C/C++** : strengthening my programming foundation and problem-solving skills
 
 ---
 
