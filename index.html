@@ -517,6 +517,185 @@
 
   </section>
 
+    <!-- ================= LIBRARY ================= -->
+    <section id="library">
+ 
+        <h2 class="lib-heading">Lavenia's Library</h2>
+        <p class="lib-sub">Tap a book to reveal it's story</p>
+ 
+        <div class="lib-shelf" id="libShelf">
+        <button class="book" data-book="skills"  style="--spine:#5b5fd0;--spine2:#8286e6;--h:360px;"><span class="book-title">Creative Toolbox</span></button>
+        <button class="book" data-book="reads"   style="--spine:#d98fd6;--spine2:#ecb1e8;--h:332px;"><span class="book-title">Books That Shaped Me</span></button>
+        <button class="book" data-book="lessons" style="--spine:#c58a94;--spine2:#dca9b1;--h:346px;"><span class="book-title">Lessons Learned</span></button>
+        <button class="book" data-book="beyond"  style="--spine:#a9c98f;--spine2:#c6ddb0;--h:330px;"><span class="book-title">Beyond Eng.</span></button>
+        </div>
+ 
+        <!-- reader overlay (opens when a book is clicked) -->
+        <div class="lib-reader" id="libReader" hidden>
+        <div class="lib-backdrop" data-close></div>
+        <div class="open-book" id="openBook">
+            <button class="lib-close" data-close aria-label="Close book">✕</button>
+            <div class="book-page" id="libPage"></div>
+            <div class="book-cover" id="bookCover">
+            <div class="cover-face cover-front">
+                <span class="cover-title" id="bookCoverLabel"></span>
+            </div>
+            <div class="cover-face cover-back">
+                <span class="bookplate"><span class="pp-star">✦</span>From<br>Lavenia's Library</span>
+            </div>
+            </div>
+        </div>
+        </div>
+ 
+        <!-- ===== BOOK CONTENTS — edit the text inside each template ===== -->
+        <div hidden>
+        <template data-content="skills">
+            <h4>📘 Creative Toolbox</h4>
+            
+            <h5>Engineering</h5>
+            <div class="chips">
+            <span>MATLAB</span><span>SolidWorks</span><span>Arduino</span>
+            <span>Docker</span><span>PostgreSQL</span><span>BigQuery</span>
+            </div>
+
+            <h5>Programming &amp; Tools</h5>
+            <div class="chips">
+            <span>Python</span><span>C / C++</span><span>SQL</span>
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Git</span>
+            </div>
+            
+            <h5>Design · UI / UX · Video Editing</h5>
+            <div class="chips">
+            <span>Figma</span><span>Canva</span><span>Illustrator</span><span>Procreate</span>
+            <span>Capcut</span><span>Wireframing</span><span>Prototyping</span>
+            </div>
+            
+            <h5>Certifications</h5>
+            <ul>
+            <li>Introduction to Model-Based Systems Engineering — Siemens, 2026</li>
+            <li>MATLAB Onramp — MathWorks, 2026</li>
+            <li>AI: From Fundamentals to Real-World Business Applications — NUS Scale, 2023</li>
+            </ul>
+        </template>
+ 
+         <template data-content="reads">
+            <h4>📙 Books That Shaped Me</h4>
+            <h5>Tap a title to open my notes</h5>
+ 
+            <details name="shaped-books" open>
+              <summary>
+                <span class="bk-title">Tuesdays with Morrie</span>
+                <span class="bk-meta"><span class="bk-stars">★★★★★</span><span class="bk-chev">⌄</span></span>
+              </summary>
+              <div class="bk-body">
+                <h6>My takeaways</h6>
+                <p>"Once you learn how to die, you learn how to live."</p>
+                <h6>Lesson learned</h6>
+                <p>This book reminds me that success isn't always about career, achievements or wealth, but it's also about the relationships and the way we treat others.</p>
+              </div>
+            </details>
+ 
+            <details name="shaped-books">
+              <summary>
+                <span class="bk-title">Atomic Habits - Robin Sharma</span>
+                <span class="bk-meta"><span class="bk-stars">★★★★☆</span><span class="bk-chev">⌄</span></span>
+              </summary>
+              <div class="bk-body">
+                <h6>My takeaways</h6>
+                <p>"Real change comes from improving your systems, not chasing motivation."</p>
+                <h6>Lesson learned</h6>
+                <p>A great results comes from consistency rather than perfection. Even a 1% improvement each day can lead to a 100% better result.</p>
+              </div>
+            </details>
+ 
+            <details name="shaped-books">
+              <summary>
+                <span class="bk-title">Moby Dick - Herman Melville</span>
+                <span class="bk-meta"><span class="bk-stars">★★★★☆</span><span class="bk-chev">⌄</span></span>
+              </summary>
+              <div class="bk-body">
+                <h6>My takeaways</h6>
+                <p>An epic adventure about obsession, resilience, and the consequences of unchecked ambition.</p>
+                <h6>Lesson learned</h6>
+                <p>Some goals are worth pursuing, but it's equally important to know when to step back. Wisdom comes from balancing perseverance with perspective.</p>
+              </div>
+            </details>
+        </template>
+ 
+        <template data-content="lessons">
+            <h4>📕 Lessons Collected</h4>
+            <ul>
+            <li>A girl who is going to do big things, cannot let small things get to her.</li>
+            <li>Confidence comes from happiness, choose to be happy.</li>
+            <li>Being ready isn't a feeling it's a decision.</li>
+            <li>Do your best & Let God do the rest.</li>
+            </ul>
+        </template>
+ 
+        <template data-content="beyond">
+            <h4>📗 Beyond Engineering</h4>
+            <h5>Some Fun Facts about Me ;)</h5>
+ 
+            <div class="me-card">
+              <div class="me-ico">🎭</div>
+              <div class="me-text">
+                <h6>I am a big fan of live-music</h6>
+                <p>I love musicals, orchestras, and a cappella performances. There's something magical about live music.</p>
+              </div>
+            </div>
+ 
+            <div class="me-card">
+              <div class="me-ico">🧭</div>
+              <div class="me-text">
+                <h6>My MBTI is ESFJ — "The caregiver/consul"</h6>
+                <p><strong>E</strong>xtroverted · <strong>S</strong>ensing · <strong>F</strong>eeling · <strong>J</strong>udging.</p>
+              </div>
+            </div>
+ 
+            <div class="me-card">
+              <div class="me-ico">🧗</div>
+              <div class="me-text">
+                <h6>Staying Active & Curious</h6>
+                <p> I love trying new activities. Lately I've been getting
+  into bouldering, I'd love to spend more time skiing,
+  and badminton is still one of my favorite ways to unwind.</p>
+              </div>
+            </div>
+            <div class="me-photos">
+              <figure class="me-photo"><img src="assets/beyond/bouldering-1.jpeg" alt="Bouldering" onerror="this.remove()">🧗</figure>
+              <figure class="me-photo"><img src="assets/beyond/bouldering-2.jpeg" alt="Bouldering" onerror="this.remove()">🧗‍♀️</figure>
+              <figure class="me-photo"><img src="assets/beyond/bouldering-3.jpeg" alt="Bouldering" onerror="this.remove()">⛰️</figure>
+            </div>
+ 
+            <div class="me-card">
+              <div class="me-ico">🎬</div>
+              <div class="me-text">
+                <h6>In-flight Movies!</h6>
+                <p>Marvel, documentaries, detective mysteries, and anything Greek mythology. Big rom-com fan. My all-time favorite movie?  <em>"A Man Called Otto"</em> </p>
+                <div class="me-tags">
+                  <span class="yes">Marvel</span>
+                  <span class="yes">Documentaries</span>
+                  <span class="yes">Detective</span>
+                  <span class="yes">Greek myth</span>
+                  <span class="yes">Rom-com</span>
+                  <span class="no">Horror</span>
+                </div>
+              </div>
+            </div>
+ 
+            <div class="me-card">
+              <div class="me-ico">📍</div>
+              <div class="me-text">
+                <h6>Someday list</h6>
+                <p>A summer in Santorini, a sailing trip through Labuan Bajo,
+the Northern Lights, and Vatican City—just a few places I'd love to experience someday.</p>
+              </div>
+            </div>
+        </template>
+        </div>
+
+    </section>
+
   <script src="script.js"></script>
 
 </body>
