@@ -169,3 +169,22 @@ carryOn.addEventListener("click",()=>{
     carryOn.classList.toggle("open");
 
 });
+
+function showTab(tabId, event) {
+
+    // Hide all sections
+    document.querySelectorAll(".tab-content").forEach(tab => {
+        tab.classList.remove("active");
+    });
+
+    // Remove active button
+    document.querySelectorAll(".tabs button").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    // Show selected section
+    document.getElementById(tabId).classList.add("active");
+
+    // Highlight selected button
+    event.target.classList.add("active");
+}

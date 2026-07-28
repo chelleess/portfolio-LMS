@@ -854,6 +854,8 @@ SOCIAL SECTION
 
 .tabs button{
 
+    position: relative;
+
     border:none;
 
     padding:10px 22px;
@@ -864,10 +866,36 @@ SOCIAL SECTION
 
     cursor:pointer;
 
-    transition:.3s;
+    transition: all 0.25s ease;
 
     font-family:inherit;
 
+}
+
+.tabs button:hover{
+    transform: translateY(-2px);
+}
+
+
+.tabs button::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-4px;
+
+    width:0;
+    height:2px;
+
+    background:#B2B1B3;
+
+    transition:.3s ease;
+
+    transform:translateX(-50%);
+}
+
+.tabs button:hover::after,
+.tabs button.active::after{
+    width:70%;
 }
 
 .tabs button.active{
@@ -1023,11 +1051,14 @@ grid-template-columns:80px auto;
 
 .flight-log h3{
 
-position:relative;
+ position: relative;
 
-font-size:32px;
-
-font-family:"Cormorant Garamond", serif;
+    font-family: "Playfair Display", serif;
+    font-size: 1.6rem;       /* ~26px */
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: #3b2d25;
+    margin-bottom: 1.2rem;
 
 }
 
@@ -1478,4 +1509,73 @@ transform:none;
 
     }
 
+}
+
+/* University / School Name */
+.content h4 {
+    font-size: 1.10rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+    color: #2f2119;
+}
+
+/* Degree */
+.content h5 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #7d7d7d;
+    margin-bottom: 0.8rem;
+}
+
+/* Paragraph */
+.content p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: #666;
+}
+
+/* Bullet List */
+.edu-list {
+    margin: 0;
+    padding-left: 1rem;      /* smaller indent */
+    font-size: 0.9rem;
+    line-height: 1.45;        /* much tighter */
+    color: #666;
+}
+
+.edu-list li {
+    margin-bottom: 0.25rem;   /* less space between bullets */
+}
+
+.year {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #8c8177;
+    line-height: 1.5;
+}
+
+.tabs button {
+    font-size: 0.95rem;   /* text size */
+    font-weight: 600;
+    padding: 0.75rem 1.8rem;
+    border-radius: 999px;
+}
+
+.tabs button.active {
+    background: #F0F4C7;
+    color: #2f2119;
+}
+
+.tabs button:not(.active) {
+    color: #57514a;
+    background: #E4F2E7
+}
+
+.tab-content{
+    display:none;
+}
+
+.tab-content.active{
+    display:block;
 }
