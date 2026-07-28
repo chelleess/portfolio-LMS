@@ -312,13 +312,105 @@ function showTab(tabId, event) {
 })();
  
 
-
-
-
-
-
-
-
-
-
-
+/* ================= DEPARTURES — split-flap board ================= */
+(function () {
+    const rowsEl = document.getElementById("flapRows");
+    if (!rowsEl) return;
+ 
+    const CHARS = " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,'!-:";
+    const messages = [
+        ["THANK YOU", "FOR FOLLOWING", "MY JOURNEY", ""],
+        ["MESSAGE ME", "ABOUT PROJECTS", "ENGINEERING OR", "COLLABORATIONS"]
+    ];
+ 
+    let maxCols = 0, numRows = 0;
+    messages.forEach(m => { numRows = Math.max(numRows, m.length); m.forEach(l => maxCols = Math.max(maxCols, l.length)); });
+ 
+    // build a fixed grid so the board never resizes
+    const cells = [];
+    for (let r = 0; r < numRows; r++) {
+        const row = document.createElement("div"); row.className = "flap-row";
+        const rc = [];
+        for (let c = 0; c < maxCols; c++) {
+            const cell = document.createElement("div");
+            cell.className = "flap-cell"; cell.textContent = " "; cell.dataset.i = "0";
+            row.appendChild(cell); rc.push(cell);
+        }
+        rowsEl.appendChild(row); cells.push(rc);
+    }
+ 
+    const pad = (s) => { const t = maxCols - s.length, l = Math.floor(t / 2); return " ".repeat(l) + s + " ".repeat(t - l); };
+ 
+    function flap(cell, ch) {
+        let target = CHARS.indexOf(ch); if (target < 0) target = 0;
+        let cur = parseInt(cell.dataset.i || "0", 10);
+        if (cur === target) return;
+        const iv = setInterval(() => {
+            cur = (cur + 1) % CHARS.length;
+            cell.textContent = CHARS[cur];
+            cell.classList.remove("flip"); void cell.offsetWidth; cell.classList.add("flip");
+            cell.dataset.i = String(cur);
+            if (cur === target) clearInterval(iv);
+        }, 45);
+    }
+ 
+    function show(i) {
+        const m = messages[i];
+        for (let r = 0; r < numRows; r++) {
+            const line = pad((m[r] || "").toUpperCase());
+            for (let c = 0; c < maxCols; c++) {
+                const ch = line[c];
+                setTimeout(() => flap(cells[r][c], ch), c * 30 + r * 55);
+            }
+        }
+    }
+ 
+    let idx = 0;
+    show(0);
+    setInterval(() => { idx = (idx + 1) % messages.length; show(idx); }, 6500);
+})();
+ 
+ 
+/* ================= POSTCARD — opens the visitor's email to you ================= */
+(function () {
+    const form = document.getElementById("pcForm");
+    if (!form) return;
+ 
+    const msgEl  = document.getElementById("pcMessage");
+    const nameEl = document.getElementById("pcName");
+    const fromEl = document.getElementById("pcFrom");
+    const statusEl = document.getElementById("pcStatus");
+    const stampPick = document.getElementById("pcStampPick");
+    let stamp = "✈️";
+ 
+    stampPick.addEventListener("click", (e) => {
+        const b = e.target.closest(".pc-stamp");
+        if (!b) return;
+        stampPick.querySelectorAll(".pc-stamp").forEach(x => x.classList.remove("is-active"));
+        b.classList.add("is-active");
+        stamp = b.dataset.stamp;
+    });
+ 
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!msgEl.value.trim() || !nameEl.value.trim()) return;
+ 
+        const to = "lavenchellesuherman@gmail.com";              // <- your inbox
+        const subject = "Postcard from " + nameEl.value.trim();
+        const body =
+            msgEl.value.trim() +
+            "\n\n— " + nameEl.value.trim() +
+            (fromEl.value.trim() ? ", " + fromEl.value.trim() : "") +
+            "\nStamp: " + stamp;
+ 
+        window.location.href =
+            "mailto:" + to +
+            "?subject=" + encodeURIComponent(subject) +
+            "&body=" + encodeURIComponent(body);
+ 
+        statusEl.hidden = false;
+        statusEl.className = "pc-status ok";
+        statusEl.textContent = "Opening your email app… thank you for your note ✦";
+    });
+})();
+ 

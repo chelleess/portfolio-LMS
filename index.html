@@ -696,6 +696,46 @@ the Northern Lights, and Vatican City—just a few places I'd love to experience
 
     </section>
 
+    <!-- ================= DEPARTURES + POSTCARD ================= -->
+  <section id="postcard">
+ 
+    <!-- split-flap departures board -->
+    <div class="flap-board">
+      <div class="flap-head"><span class="flap-plane">✈</span> Departures</div>
+      <div class="flap-rows" id="flapRows"></div>
+    </div>
+ 
+    <!-- postcard message (opens the visitor's email to you) -->
+    <h2 class="pc-heading">Send Lavenia a Post<span class="spark">✦</span>card</h2>
+    <p class="pc-sub">Feel free to message me about projects, engineering, or collaborations. (,,>ヮ<,,)!</p>
+ 
+    <form class="pc-compose" id="pcForm" autocomplete="off">
+      <div class="pc-card">
+        <div class="pc-left">
+          <textarea id="pcMessage" maxlength="500" required placeholder="Write your message here…"></textarea>
+        </div>
+        <div class="pc-right">
+          <div class="pc-stamp-pick" id="pcStampPick" role="radiogroup" aria-label="Pick a stamp">
+            <button type="button" class="pc-stamp is-active" data-stamp="✈️" aria-label="plane">✈️</button>
+            <button type="button" class="pc-stamp" data-stamp="🗺️" aria-label="map">🗺️</button>
+            <button type="button" class="pc-stamp" data-stamp="🌏" aria-label="globe">🌏</button>
+            <button type="button" class="pc-stamp" data-stamp="⛰️" aria-label="mountain">⛰️</button>
+          </div>
+          <div class="pc-address">
+            <label>To</label>
+            <p class="pc-to">Lavenia M. S.</p>
+            <label>From</label>
+            <input id="pcName" maxlength="60" required placeholder="Your name">
+            <input id="pcFrom" maxlength="60" placeholder="Where from? (optional)">
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="pc-send" id="pcSend">Send it ✦</button>
+      <p class="pc-status" id="pcStatus" hidden></p>
+    </form>
+ 
+  </section>
+
   <script src="script.js"></script>
 
 </body>
